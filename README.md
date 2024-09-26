@@ -43,11 +43,11 @@ You can download a similar dataset from [MovieLens](https://grouplens.org/datase
 
 2. **Intall the dependencies**:
    Ensure you have pip installed, then run:
-   pip install -r requirements.txt
+   ```pip install -r requirements.txt
 
 3. **Run the Jupyter Notebook**:
    You can launch the project by running:
-   jupyter notebook MovieRec.ipynb
+   ```jupyter notebook MovieRec.ipynb
 
 ## 🛠 How it Works
 
