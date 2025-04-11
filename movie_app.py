@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 import re
+import zipfile
+import requests
+import io
 import streamlit as st
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -11,7 +14,15 @@ st.title("🎬 Movie Recommendation App")
 @st.cache_data
 def load_data():
     movies = pd.read_csv("movies.csv")
-    ratings = pd.read_csv("ratings.csv")
+
+    # Load ratings.csv from Google Drive zip file
+    url = "https://drive.google.com/uc?export=download&id=1PvPL5IaLTtt6Pq3L5CqFNLg0DHREJ87Q"
+    response = requests.get(url)
+    
+    with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+        with z.open("ratings.csv") as f:
+            ratings = pd.read_csv(f)
+
     return movies, ratings
 
 movies, ratings = load_data()
