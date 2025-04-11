@@ -12,15 +12,14 @@ st.title("🎬 Movie Recommendation App")
 # Load data
 @st.cache_data
 def load_data():
-    # Download the plain CSV from Google Drive
     gdown.download(
-        "https://drive.google.com/uc?id=1MtdfWJLmwPEwABPR5MRMjVbHmOojeIBd",
-        "ratings_10percent.csv",
+        "https://drive.google.com/uc?id=1R6QScWikH_1NpehnWiKxFwVDx9ZBhZyh",
+        "ratings_70percent.csv",
         quiet=False
     )
 
     movies = pd.read_csv("movies.csv")
-    ratings = pd.read_csv("ratings_10percent.csv")
+    ratings = pd.read_csv("ratings_70percent.csv")
 
     return movies, ratings
 
