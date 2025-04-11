@@ -9,6 +9,35 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 st.title("🎬 Movie Recommendation App")
 
+st.markdown(
+    """
+    <style>
+    .top-right {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        z-index: 9999;
+    }
+    .top-right a {
+        background-color: #f63366;
+        color: white;
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-family: sans-serif;
+    }
+    .top-right a:hover {
+        background-color: #e62e5c;
+    }
+    </style>
+    <div class="top-right">
+        <a href="https://dkapur.com">Back</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 # Load data
 @st.cache_data
 def load_data():
