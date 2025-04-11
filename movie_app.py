@@ -14,8 +14,8 @@ st.title("🎬 Movie Recommendation App")
 def load_data():
     # Download the plain CSV from Google Drive
     gdown.download(
-        "https://drive.google.com/uc?id=1PvPL5IaLTtt6Pq3L5CqFNLg0DHREJ87Q",
-        "ratings.csv",
+        "https://drive.google.com/uc?id=1MtdfWJLmwPEwABPR5MRMjVbHmOojeIBd",
+        "ratings_10percent.csv",
         quiet=False
     )
 
