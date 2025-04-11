@@ -20,7 +20,7 @@ def load_data():
     )
 
     movies = pd.read_csv("movies.csv")
-    ratings = pd.read_csv("ratings.csv")
+    ratings = pd.read_csv("ratings_10percent.csv")
 
     return movies, ratings
 
