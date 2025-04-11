@@ -3,6 +3,7 @@ import numpy as np
 import re
 import zipfile
 import gdown
+import os
 import streamlit as st
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -12,19 +13,24 @@ st.title("🎬 Movie Recommendation App")
 # Load data
 @st.cache_data
 def load_data():
-    # Download from Google Drive using gdown
-    gdown.download(
-        "https://drive.google.com/uc?id=1PvPL5IaLTtt6Pq3L5CqFNLg0DHREJ87Q",
-        "ratings.csv.zip",
-        quiet=False
-    )
+    # Download only if file doesn't already exist
+    zip_path = "ratings.csv.zip"
+    if not os.path.exists(zip_path):
+        gdown.download(
+            "https://drive.google.com/uc?id=1PvPL5IaLTtt6Pq3L5CqFNLg0DHREJ87Q",
+            zip_path,
+            quiet=False
+        )
 
-    movies = pd.read_csv("movies.csv")
+    # Verify the ZIP file actually exists and is not corrupted
+    if not zipfile.is_zipfile(zip_path):
+        raise RuntimeError("Downloaded file is not a valid ZIP. Please check the Drive link.")
 
-    with zipfile.ZipFile("ratings.csv.zip") as z:
+    with zipfile.ZipFile(zip_path) as z:
         with z.open("ratings.csv") as f:
             ratings = pd.read_csv(f)
 
+    movies = pd.read_csv("movies.csv")
     return movies, ratings
 
 movies, ratings = load_data()
