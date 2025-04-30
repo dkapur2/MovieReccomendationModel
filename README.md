@@ -2,6 +2,8 @@
 
 This project implements a **Movie Recommendation System** using machine learning techniques. The model is built to recommend movies based on user preferences, using collaborative filtering and content-based filtering methods. This project showcases  skills in **data science**, **machine learning**, and **Python programming**.
 
+Now available on dkapur.com for demo!
+
 ## 📄 Overview
 
 The movie recommendation model helps users find movies that match their tastes based on previous ratings and preferences. It leverages a dataset containing user ratings and applies machine learning algorithms to suggest movies.
